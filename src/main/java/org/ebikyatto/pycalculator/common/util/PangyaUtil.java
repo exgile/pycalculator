@@ -117,10 +117,10 @@ public final class PangyaUtil {
 		return (yard + yardOfLI + verticalWind - elevation) * .001 * breakOfDip * (yardOfMaxDip / yard) * factorOfDip;
 	}
 	
-	public static double pbScaleOfTomahawk(Environment environment, double hwi) {
+	public static double pbScaleOfTomahawk(Environment environment, double hwi, double factorOfDip) {
 		
 		double horizontalWind = environment.getHorizontalWind();
-		double massOfDip = massOfDip(environment, .4);
+		double massOfDip = massOfDip(environment, factorOfDip);
 		
 		return (horizontalWind + massOfDip) * hwi / POWERBAR_SCALE_RATIO;
 	}

@@ -1,11 +1,9 @@
 package org.ebikyatto.pycalculator.model.vo;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @ToString
-@NoArgsConstructor
 public class Result {
 	
 	@Getter
