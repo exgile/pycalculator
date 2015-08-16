@@ -35,22 +35,22 @@ public final class PangyaUtil {
 		return horizontalWind;
 	}
 	
-	public static double realVerticalWind(Environment environment, double maxYardOfSkill, double factorOfWind) {
+	public static double realVerticalWind(Environment environment, double maxYardOfSpShot, double factorOfWind) {
 		double verticalWind = verticalWind(environment);
 		double yard = environment.getYard();
 		double yardOfLI = environment.getYardOfLI();
 		double elevation = environment.getElevation();
 		
-		return verticalWind * MathUtil.square((yard + yardOfLI - elevation) / maxYardOfSkill) * factorOfWind;
+		return verticalWind * MathUtil.square((yard + yardOfLI - elevation) / maxYardOfSpShot) * factorOfWind;
 	}
 	
-	public static double realElevation(Environment environment, double maxYardOfSkill, double factorOfElevation) {
+	public static double realElevation(Environment environment, double maxYardOfSpShot, double factorOfElevation) {
 		double verticalWind = verticalWind(environment);
 		double yard = environment.getYard();
 		double yardOfLI = environment.getYardOfLI();
 		double elevation = environment.getElevation();
 		
-		return elevation * MathUtil.square(maxYardOfSkill / (yard + yardOfLI + verticalWind - elevation)) * factorOfElevation;
+		return elevation * MathUtil.square(maxYardOfSpShot / (yard + yardOfLI + verticalWind - elevation)) * factorOfElevation;
 	}
 	
 	public static double yardToGo(Environment environment, double realVerticalWind, double realElevation) {

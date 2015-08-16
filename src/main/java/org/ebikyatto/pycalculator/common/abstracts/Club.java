@@ -8,6 +8,7 @@ import org.ebikyatto.pycalculator.common.enums.Dunk;
 import org.ebikyatto.pycalculator.common.enums.Spike;
 import org.ebikyatto.pycalculator.common.enums.Tomahawk;
 import org.ebikyatto.pycalculator.common.interfaces.SpecialShot;
+import org.ebikyatto.pycalculator.common.util.DoubleUtil;
 import org.ebikyatto.pycalculator.model.vo.Environment;
 import org.ebikyatto.pycalculator.model.vo.Result;
 
@@ -20,6 +21,17 @@ public abstract class Club implements SpecialShot {
 	}
 
 	private Result tomahawk(Environment env, Tomahawk type) {
+		double coefficient = DoubleUtil.parseDouble(bundle.getString(type.toString() + ".coefficient"));
+		double factorOfWind = DoubleUtil.parseDouble(bundle.getString(type.toString() + ".factorOfWind"));
+		double[] yardOfForce = DoubleUtil.parseDoubleArray(bundle.getString(type.toString() + ".yardOfForce"));
+		
+		double factorOfElevation = 0;
+		if (env.getElevation() >= 0) {
+			factorOfElevation = DoubleUtil.parseDouble(bundle.getString(type.toString() + ".rise.factorOfElevation"));
+		} else {
+			factorOfElevation = DoubleUtil.parseDouble(bundle.getString(type.toString() + ".fall.factorOfElevation"));
+		}
+		
 		return null;
 	}
 	
