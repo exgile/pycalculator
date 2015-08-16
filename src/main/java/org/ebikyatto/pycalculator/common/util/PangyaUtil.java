@@ -41,7 +41,7 @@ public final class PangyaUtil {
 		double yardOfLI = environment.getYardOfLI();
 		double elevation = environment.getElevation();
 		
-		return verticalWind * MathUtil.square((yard + yardOfLI - elevation) / maxYardOfSpShot) * factorOfWind;
+		return verticalWind * MathUtil.square((yard + yardOfLI - elevation + verticalWind) / maxYardOfSpShot) * factorOfWind;
 	}
 	
 	public static double realElevation(Environment environment, double maxYardOfSpShot, double factorOfElevation) {
@@ -76,6 +76,7 @@ public final class PangyaUtil {
 				thresholdOfForce -= 5;
 			} else {
 				forceToGo = thresholdOfForce - (yardOfForce[index] - yardToGo) / scaleOfForce[index];
+				break;
 			}
 		}
 		

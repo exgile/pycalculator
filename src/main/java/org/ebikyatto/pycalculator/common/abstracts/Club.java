@@ -18,7 +18,7 @@ public abstract class Club implements SpecialShot {
 	
 	public Club() {
 		String baseName = this.getClass().getSimpleName().toLowerCase();
-		bundle = ResourceBundle.getBundle(baseName);
+		bundle = ResourceBundle.getBundle("config/" + baseName);
 	}
 
 	private Result tomahawk(Environment environment, Tomahawk type) {
@@ -44,7 +44,7 @@ public abstract class Club implements SpecialShot {
 		double yardToGo = PangyaUtil.yardToGo(environment, realVerticalWind, realElevation);
 		double force = PangyaUtil.force(environment, yardToGo, yardOfForce);
 		double hwiOfTomahawk = PangyaUtil.hwiOfTomahawk(environment, coefficient);
-		double pbScaleOfTomahawk = PangyaUtil.pbScaleOfTomahawk(environment, hwiOfTomahawk, .8);
+		double pbScaleOfTomahawk = PangyaUtil.pbScaleOfTomahawk(environment, hwiOfTomahawk, .4);
 		
 		return new Result(pbScaleOfTomahawk, force);
 	}
