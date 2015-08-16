@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<context:annotation-config />
+	<context:component-scan base-package="org.ebikyatto.pycalculator" />
+
+	<util:map id="clubMap" map-class="java.util.HashMap" key-type="java.lang.String"
+		value-type="org.ebikyatto.pycalculator.common.abstracts.Club">
+		<entry key="1W" value-ref="club1W" />
+		<entry key="2W" value-ref="club2W" />
+		<entry key="3W" value-ref="club3W" />
+		<entry key="2I" value-ref="club2I" />
+		<entry key="3I" value-ref="club3I" />
+		<entry key="4I" value-ref="club4I" />
+	</util:map>
+</beans>

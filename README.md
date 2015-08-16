@@ -1,2 +1,2 @@
 # pycalculator
-recommit project to fix bug
+refactoring project
