@@ -4,6 +4,7 @@ import org.ebikyatto.pycalculator.common.test.TestCase;
 import org.ebikyatto.pycalculator.model.vo.Environment;
 import org.ebikyatto.pycalculator.model.vo.Result;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -66,5 +67,33 @@ public class Club1WTest extends TestCase {
 		Assert.assertEquals(23.412, result.getPbScale(), .1);
 		Assert.assertEquals(4.682, result.getMoca(), .1);
 		Assert.assertEquals(90.388, result.getForce(), .1);
+	}
+	
+	@Test
+	public void testDunk() {
+		Environment environment = new Environment();
+
+		double yard = 220;
+		double elevation = -10;
+		double[] speedOfWinds = new double[] {9};
+		double[] angleOfWinds = new double[] {45};
+		double[] ratioOfWinds = new double[] {1};
+		double breakOfDip = -2;
+		double yardOfMaxDip = 220;
+		
+		environment.setYard(yard);
+		environment.setElevation(elevation);
+		environment.setSpeedOfWinds(speedOfWinds);
+		environment.setAngleOfWinds(angleOfWinds);
+		environment.setRatioOfWinds(ratioOfWinds);
+		environment.setBreakOfDip(breakOfDip);
+		environment.setYardOfMaxDip(yardOfMaxDip);
+		
+		Result result = club1W.dunk(environment);
+		this.getLogger().debug(result.toString());
+
+		Assert.assertEquals(27.4476, result.getPbScale(), .1);
+		Assert.assertEquals(5.489, result.getMoca(), .1);
+		Assert.assertEquals(96.599, result.getForce(), .1);
 	}
 }

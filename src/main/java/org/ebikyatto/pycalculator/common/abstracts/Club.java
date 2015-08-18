@@ -43,22 +43,94 @@ public abstract class Club implements SpecialShot {
 		double realElevation = PangyaUtil.realElevation(environment, yardOfForce[0], factorOfElevation);
 		double yardToGo = PangyaUtil.yardToGo(environment, realVerticalWind, realElevation);
 		double force = PangyaUtil.force(environment, yardToGo, yardOfForce);
-		double hwiOfTomahawk = PangyaUtil.hwiOfTomahawk(environment, coefficient);
+		double hwiOfTomahawk = PangyaUtil.hwiOfTomahawk(environment, coefficient, .4);
 		double pbScaleOfTomahawk = PangyaUtil.pbScaleOfTomahawk(environment, hwiOfTomahawk, .4);
 		
 		return new Result(pbScaleOfTomahawk, force);
 	}
 	
 	private Result dunk(Environment environment, Dunk type) {
-		return null;
+		double coefficient = DoubleUtil.parseDouble(bundle.getString(type.toString() + ".coefficient"));
+		double factorOfWind = DoubleUtil.parseDouble(bundle.getString(type.toString() + ".factorOfWind"));
+		double[] yardOfForce = DoubleUtil.parseDoubleArray(bundle.getString(type.toString() + ".yardOfForce"));
+		
+		double factorOfElevation = 0;
+		if (environment.getElevation() >= 0) {
+			factorOfElevation = DoubleUtil.parseDouble(bundle.getString(type.toString() + ".rise.factorOfElevation"));
+		} else {
+			factorOfElevation = DoubleUtil.parseDouble(bundle.getString(type.toString() + ".fall.factorOfElevation"));
+		}
+		
+		double verticalWind = PangyaUtil.verticalWind(environment);
+		environment.setVerticalWind(verticalWind);
+		
+		double horizontalWind = PangyaUtil.horizontalWind(environment);
+		environment.setHorizontalWind(horizontalWind);
+		
+		double realVerticalWind = PangyaUtil.realVerticalWind(environment, yardOfForce[0], factorOfWind);
+		double realElevation = PangyaUtil.realElevation(environment, yardOfForce[0], factorOfElevation);
+		double yardToGo = PangyaUtil.yardToGo(environment, realVerticalWind, realElevation);
+		double force = PangyaUtil.force(environment, yardToGo, yardOfForce);
+		double hwiOfDunk = PangyaUtil.hwiOfDunk(environment, yardOfForce, coefficient, 1);
+		double pbScaleOfDunk = PangyaUtil.pbScaleOfDunk(environment, hwiOfDunk, .5);
+		
+		return new Result(pbScaleOfDunk, force);
 	}
 	
 	private Result backspin(Environment environment, Backspin type) {
-		return null;
+		double coefficient = DoubleUtil.parseDouble(bundle.getString(type.toString() + ".coefficient"));
+		double factorOfWind = DoubleUtil.parseDouble(bundle.getString(type.toString() + ".factorOfWind"));
+		double[] yardOfForce = DoubleUtil.parseDoubleArray(bundle.getString(type.toString() + ".yardOfForce"));
+		
+		double factorOfElevation = 0;
+		if (environment.getElevation() >= 0) {
+			factorOfElevation = DoubleUtil.parseDouble(bundle.getString(type.toString() + ".rise.factorOfElevation"));
+		} else {
+			factorOfElevation = DoubleUtil.parseDouble(bundle.getString(type.toString() + ".fall.factorOfElevation"));
+		}
+		
+		double verticalWind = PangyaUtil.verticalWind(environment);
+		environment.setVerticalWind(verticalWind);
+		
+		double horizontalWind = PangyaUtil.horizontalWind(environment);
+		environment.setHorizontalWind(horizontalWind);
+		
+		double realVerticalWind = PangyaUtil.realVerticalWind(environment, yardOfForce[0], factorOfWind);
+		double realElevation = PangyaUtil.realElevation(environment, yardOfForce[0], factorOfElevation);
+		double yardToGo = PangyaUtil.yardToGo(environment, realVerticalWind, realElevation);
+		double force = PangyaUtil.force(environment, yardToGo, yardOfForce);
+		double hwiOfBackspin = PangyaUtil.hwiOfBackspin(environment, coefficient, 1);
+		double pbScaleOfBackspin = PangyaUtil.pbScaleOfBackspin(environment, hwiOfBackspin, .5);
+		
+		return new Result(pbScaleOfBackspin, force);
 	}
 	
 	private Result cobra(Environment environment, Cobra type) {
-		return null;
+		double coefficient = DoubleUtil.parseDouble(bundle.getString(type.toString() + ".coefficient"));
+		double factorOfWind = DoubleUtil.parseDouble(bundle.getString(type.toString() + ".factorOfWind"));
+		double[] yardOfForce = DoubleUtil.parseDoubleArray(bundle.getString(type.toString() + ".yardOfForce"));
+		
+		double factorOfElevation = 0;
+		if (environment.getElevation() >= 0) {
+			factorOfElevation = DoubleUtil.parseDouble(bundle.getString(type.toString() + ".rise.factorOfElevation"));
+		} else {
+			factorOfElevation = DoubleUtil.parseDouble(bundle.getString(type.toString() + ".fall.factorOfElevation"));
+		}
+		
+		double verticalWind = PangyaUtil.verticalWind(environment);
+		environment.setVerticalWind(verticalWind);
+		
+		double horizontalWind = PangyaUtil.horizontalWind(environment);
+		environment.setHorizontalWind(horizontalWind);
+		
+		double realVerticalWind = PangyaUtil.realVerticalWind(environment, yardOfForce[0], factorOfWind);
+		double realElevation = PangyaUtil.realElevation(environment, yardOfForce[0], factorOfElevation);
+		double yardToGo = PangyaUtil.yardToGo(environment, realVerticalWind, realElevation);
+		double force = PangyaUtil.force(environment, yardToGo, yardOfForce);
+		double hwiOfCobra = PangyaUtil.hwiOfCobra(environment, coefficient, 1);
+		double pbScaleOfCobra = PangyaUtil.pbScaleOfCobra(environment, hwiOfCobra, .6);
+		
+		return new Result(pbScaleOfCobra, force);
 	}
 	
 	private Result spike(Environment environment, Spike type) {

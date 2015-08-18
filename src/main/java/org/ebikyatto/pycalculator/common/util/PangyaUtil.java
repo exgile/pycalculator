@@ -72,7 +72,7 @@ public final class PangyaUtil {
 		double forceToGo = 0;
 		
 		for (int index = 0; index < scaleOfForce.length; index++) {
-			if (index != scaleOfForce.length - 1 && yardToGo >= yardOfForce[index + 1]) {
+			if (index != scaleOfForce.length - 1 && yardToGo >= yardOfForce[index]) {
 				thresholdOfForce -= 5;
 			} else {
 				forceToGo = thresholdOfForce - (yardOfForce[index] - yardToGo) / scaleOfForce[index];
@@ -83,28 +83,42 @@ public final class PangyaUtil {
 		return forceToGo;
 	}
 	
-	public static double hwiOfTomahawk(Environment environment, double coefficient) {
+	public static double hwiOfTomahawk(Environment environment, double coefficient, double modifier) {
 		double yard = environment.getYard();
 		double yardOfLI = environment.getYardOfLI();
 		double verticalWind = environment.getVerticalWind();
 		double elevation = environment.getElevation();
 		
-		double yardOfHWI = yard + yardOfLI + verticalWind - elevation * .4;
+		double yardOfHWI = yard + yardOfLI + verticalWind - elevation * modifier;
 
 		return yardOfHWI * coefficient - 1;
 	}
 	
-	public static double hwiOfDunk(Environment environment, double coefficient) {
-		return hwiOfTomahawk(environment, coefficient);
-	}
-	
-	public static double hwiOfBackspin(Environment environment, double coefficient) {
-		return hwiOfTomahawk(environment, coefficient);
-	}
-	
-	public static double hwiOfCobra(Environment environment, double coefficient) {
+	public static double hwiOfDunk(Environment environment, double[] yardOfForce, double coefficient, double modifier) {
 		double yard = environment.getYard();
-		return yard * coefficient - 1;
+		if (yardOfForce.length > 5 && yard <= yardOfForce[5]) {
+			yard = yardOfForce[5];
+		}
+		double yardOfLI = environment.getYardOfLI();
+		double verticalWind = environment.getVerticalWind();
+		double elevation = environment.getElevation();
+		
+		double yardOfHWI = yard + yardOfLI + verticalWind - elevation * modifier;
+
+		return yardOfHWI * coefficient - 1;
+	}
+	
+	public static double hwiOfBackspin(Environment environment, double coefficient, double modifier) {
+		return hwiOfTomahawk(environment, coefficient, modifier);
+	}
+	
+	public static double hwiOfCobra(Environment environment, double coefficient, double modifier) {
+		double yard = environment.getYard();
+		double elevation = environment.getElevation();
+		
+		double yardOfHWI = yard - elevation * modifier;
+		
+		return yardOfHWI * coefficient - 1;
 	}
 	
 	public static double massOfDip(Environment environment, double factorOfDip) {
@@ -126,29 +140,21 @@ public final class PangyaUtil {
 		return (horizontalWind + massOfDip) * hwi / POWERBAR_SCALE_RATIO;
 	}
 	
-	public static double pbScaleOfDunk(Environment environment, double hwi) {
-		
-		double horizontalWind = environment.getHorizontalWind();
-		double massOfDip = massOfDip(environment, .5);
-		
-		return (horizontalWind + massOfDip) * hwi / POWERBAR_SCALE_RATIO;
+	public static double pbScaleOfDunk(Environment environment, double hwi, double factorOfDip) {
+		return pbScaleOfTomahawk(environment, hwi, factorOfDip);
 	}
 	
-	public static double pbScaleOfBackspin(Environment environment, double hwi) {
+	public static double pbScaleOfBackspin(Environment environment, double hwi, double factorOfDip) {
 		
 		double horizontalWind = environment.getHorizontalWind();
-		double massOfDip = massOfDip(environment, .5);
+		double massOfDip = massOfDip(environment, factorOfDip);
 		double pbScaleOfGreen = environment.getPbScaleOfGreen();
 		
 		return ((horizontalWind + massOfDip) / POWERBAR_SCALE_RATIO + pbScaleOfGreen) * hwi;
 	}
 	
-	public static double pbScaleOfCobra(Environment environment, double hwi) {
-		
-		double horizontalWind = environment.getHorizontalWind();
-		double massOfDip = massOfDip(environment, .6);
-		
-		return (horizontalWind + massOfDip) * hwi / POWERBAR_SCALE_RATIO;
+	public static double pbScaleOfCobra(Environment environment, double hwi, double factorOfDip) {
+		return pbScaleOfTomahawk(environment, hwi, factorOfDip);
 	}
 	
 }
