@@ -36,19 +36,35 @@ public final class PangyaUtil {
 	}
 	
 	public static double realVerticalWind(Environment environment, double maxYardOfSpShot, double factorOfWind) {
+		return realVerticalWind(environment, maxYardOfSpShot, factorOfWind, false);
+	}
+	
+	public static double realVerticalWind(Environment environment, double maxYardOfSpShot, double factorOfWind, boolean isCobra) {
 		double verticalWind = verticalWind(environment);
 		double yard = environment.getYard();
 		double yardOfLI = environment.getYardOfLI();
 		double elevation = environment.getElevation();
 		
+		if (isCobra) {
+			yard = maxYardOfSpShot;
+		}
+		
 		return verticalWind * MathUtil.square((yard + yardOfLI - elevation + verticalWind) / maxYardOfSpShot) * factorOfWind;
 	}
 	
 	public static double realElevation(Environment environment, double maxYardOfSpShot, double factorOfElevation) {
+		return realElevation(environment, maxYardOfSpShot, factorOfElevation, false);
+	}
+	
+	public static double realElevation(Environment environment, double maxYardOfSpShot, double factorOfElevation, boolean isCobra) {
 		double verticalWind = verticalWind(environment);
 		double yard = environment.getYard();
 		double yardOfLI = environment.getYardOfLI();
 		double elevation = environment.getElevation();
+		
+		if (isCobra) {
+			return elevation * factorOfElevation;
+		}
 		
 		return elevation * MathUtil.square(maxYardOfSpShot / (yard + yardOfLI + verticalWind - elevation)) * factorOfElevation;
 	}
@@ -111,8 +127,8 @@ public final class PangyaUtil {
 		return hwiOfTomahawk(environment, coefficient, modifier);
 	}
 	
-	public static double hwiOfCobra(Environment environment, double coefficient, double modifier) {
-		double yard = environment.getYard();
+	public static double hwiOfCobra(Environment environment, double[] yardOfForce, double coefficient, double modifier) {
+		double yard = yardOfForce[0];
 		double elevation = environment.getElevation();
 		
 		double yardOfHWI = yard - elevation * modifier;

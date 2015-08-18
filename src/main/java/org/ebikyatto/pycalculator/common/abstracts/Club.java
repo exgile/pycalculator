@@ -123,11 +123,11 @@ public abstract class Club implements SpecialShot {
 		double horizontalWind = PangyaUtil.horizontalWind(environment);
 		environment.setHorizontalWind(horizontalWind);
 		
-		double realVerticalWind = PangyaUtil.realVerticalWind(environment, yardOfForce[0], factorOfWind);
-		double realElevation = PangyaUtil.realElevation(environment, yardOfForce[0], factorOfElevation);
+		double realVerticalWind = PangyaUtil.realVerticalWind(environment, yardOfForce[0], factorOfWind, true);
+		double realElevation = PangyaUtil.realElevation(environment, yardOfForce[0], factorOfElevation, true);
 		double yardToGo = PangyaUtil.yardToGo(environment, realVerticalWind, realElevation);
 		double force = PangyaUtil.force(environment, yardToGo, yardOfForce);
-		double hwiOfCobra = PangyaUtil.hwiOfCobra(environment, coefficient, 1);
+		double hwiOfCobra = PangyaUtil.hwiOfCobra(environment, yardOfForce, coefficient, 1);
 		double pbScaleOfCobra = PangyaUtil.pbScaleOfCobra(environment, hwiOfCobra, .6);
 		
 		return new Result(pbScaleOfCobra, force);
