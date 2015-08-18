@@ -72,12 +72,11 @@ public final class PangyaUtil {
 		double forceToGo = 0;
 		
 		for (int index = 0; index < scaleOfForce.length; index++) {
-			if (index != scaleOfForce.length - 1 && yardToGo >= yardOfForce[index]) {
-				thresholdOfForce -= 5;
-			} else {
+			if (index == scaleOfForce.length - 1 || yardToGo >= yardOfForce[index + 1]) {
 				forceToGo = thresholdOfForce - (yardOfForce[index] - yardToGo) / scaleOfForce[index];
 				break;
 			}
+			thresholdOfForce -= 5;
 		}
 		
 		return forceToGo;
