@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import java.net.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="500.0" style="-fx-font-size: 12pt; -fx-font-family: &quot;Courier New&quot;;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ebikyatto.main.app.controller.ModalController">
+   <children>
+      <Label layoutX="40.0" layoutY="25.0" text="CLUB" />
+      <TextField fx:id="club" editable="false" layoutX="90.0" layoutY="20.0" prefHeight="36.0" prefWidth="100.0" />
+      <Label layoutX="250.0" layoutY="25.0" text="SPECIALSHOT" />
+      <TextField fx:id="specialShot" editable="false" layoutX="310.0" layoutY="20.0" prefHeight="36.0" prefWidth="150.0" />
+      <Label layoutX="40.0" layoutY="130.0" text="REGULAR" />
+      <Label layoutX="40.0" layoutY="180.0" text="TYPE A" />
+      <Label layoutX="40.0" layoutY="230.0" text="TYPE B" />
+      <Label alignment="CENTER" layoutX="150.0" layoutY="100.0" prefWidth="80.0" text="PBSCALE" />
+      <Label alignment="CENTER" layoutX="260.0" layoutY="100.0" prefWidth="80.0" text="MOCA" />
+      <Label alignment="CENTER" layoutX="370.0" layoutY="100.0" prefWidth="80.0" text="FORCE" />
+      <TextField fx:id="level1PbScale" editable="false" layoutX="150.0" layoutY="130.0" maxWidth="80.0" />
+      <TextField fx:id="level1Moca" editable="false" layoutX="260.0" layoutY="130.0" maxWidth="80.0" />
+      <TextField fx:id="level1Force" editable="false" layoutX="370.0" layoutY="130.0" maxWidth="80.0" />
+      <TextField fx:id="level2PbScale" editable="false" layoutX="150.0" layoutY="180.0" maxWidth="80.0" />
+      <TextField fx:id="level2Moca" editable="false" layoutX="260.0" layoutY="180.0" maxWidth="80.0" />
+      <TextField fx:id="level2Force" editable="false" layoutX="370.0" layoutY="180.0" maxWidth="80.0" />
+      <TextField fx:id="level3PbScale" editable="false" layoutX="150.0" layoutY="230" maxWidth="80.0" />
+      <TextField fx:id="level3Moca" editable="false" layoutX="260.0" layoutY="230.0" maxWidth="80.0" />
+      <TextField fx:id="level3Force" editable="false" layoutX="370.0" layoutY="230.0" maxWidth="80.0" />
+   </children>
+</AnchorPane>

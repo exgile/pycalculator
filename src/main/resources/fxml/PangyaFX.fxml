@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" style="-fx-font-size: 12pt; -fx-font-family: &quot;Courier New&quot;;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ebikyatto.main.app.controller.PangyaFXController">
+   <children>
+      <Label layoutX="40.0" layoutY="30.0" text="YARD" />
+      <TextField fx:id="txtYard" layoutX="40.0" layoutY="50.0" />
+      <Label layoutX="40.0" layoutY="80.0" text="ELEVATION" />
+      <TextField fx:id="txtEle" layoutX="40.0" layoutY="100.0" />
+      <Label layoutX="40.0" layoutY="130.0" text="WIND SPEED" />
+      <TextField fx:id="txtWindSpd" layoutX="40.0" layoutY="150.0" />
+      <Label layoutX="40.0" layoutY="180.0" text="WIND ANGLE" />
+      <TextField fx:id="txtWindAgl" layoutX="40.0" layoutY="200.0" />
+      <Label layoutX="40.0" layoutY="230.0" text="WIND RATIO" />
+      <TextField fx:id="txtWindRto" layoutX="40.0" layoutY="250.0" />
+      <Label layoutX="40.0" layoutY="280.0" text="DIP BREAK" />
+      <TextField fx:id="txtDpBreak" layoutX="40.0" layoutY="300.0" />
+      <Label layoutX="40.0" layoutY="330.0" text="DIP YARD" />
+      <TextField fx:id="txtDpYard" layoutX="40.0" layoutY="350.0" />
+      <Label layoutX="40.0" layoutY="380.0" text="LIE" />
+      <TextField fx:id="txtLie" layoutX="40.0" layoutY="400.0" />
+      <Label layoutX="40.0" layoutY="430.0" text="GREEN" />
+      <TextField fx:id="txtGreen" layoutX="40.0" layoutY="450.0" />
+      <ComboBox fx:id="cbxClub" layoutX="220.0" layoutY="50.0" prefWidth="150.0">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="1W" />
+               <String fx:value="2W" />
+               <String fx:value="3W" />
+               <String fx:value="2I" />
+               <String fx:value="3I" />
+               <String fx:value="4I" />
+            </FXCollections>
+         </items>
+         <value>
+            <String fx:value="1W" />
+         </value>
+      </ComboBox>
+      <Button fx:id="btnTomahawk" layoutX="220.0" layoutY="120.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" text="TOMAHAWK" />
+      <Button fx:id="btnDunk" layoutX="220.0" layoutY="175.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" text="DUNK" />
+      <Button fx:id="btnBackspin" layoutX="220.0" layoutY="230.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" text="BACKSPIN" />
+      <Button fx:id="btnCobra" layoutX="220.0" layoutY="285.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" text="COBRA" />
+      <Button fx:id="btnClear" layoutX="220.0" layoutY="340.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" text="CLEAR" />
+   </children>
+</AnchorPane>
