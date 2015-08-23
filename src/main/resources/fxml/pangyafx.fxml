@@ -6,26 +6,26 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" style="-fx-font-size: 12pt; -fx-font-family: &quot;Courier New&quot;;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ebikyatto.main.app.controller.PangyaFXController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" style="-fx-font-size: 12pt; -fx-font-family: &quot;Courier New&quot;;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ebikyatto.pycalculator.app.controller.PangyaFXController">
    <children>
       <Label layoutX="40.0" layoutY="30.0" text="YARD" />
       <TextField fx:id="txtYard" layoutX="40.0" layoutY="50.0" />
       <Label layoutX="40.0" layoutY="80.0" text="ELEVATION" />
-      <TextField fx:id="txtEle" layoutX="40.0" layoutY="100.0" />
-      <Label layoutX="40.0" layoutY="130.0" text="WIND SPEED" />
-      <TextField fx:id="txtWindSpd" layoutX="40.0" layoutY="150.0" />
-      <Label layoutX="40.0" layoutY="180.0" text="WIND ANGLE" />
-      <TextField fx:id="txtWindAgl" layoutX="40.0" layoutY="200.0" />
-      <Label layoutX="40.0" layoutY="230.0" text="WIND RATIO" />
-      <TextField fx:id="txtWindRto" layoutX="40.0" layoutY="250.0" />
-      <Label layoutX="40.0" layoutY="280.0" text="DIP BREAK" />
-      <TextField fx:id="txtDpBreak" layoutX="40.0" layoutY="300.0" />
-      <Label layoutX="40.0" layoutY="330.0" text="DIP YARD" />
-      <TextField fx:id="txtDpYard" layoutX="40.0" layoutY="350.0" />
-      <Label layoutX="40.0" layoutY="380.0" text="LIE" />
-      <TextField fx:id="txtLie" layoutX="40.0" layoutY="400.0" />
-      <Label layoutX="40.0" layoutY="430.0" text="GREEN" />
-      <TextField fx:id="txtGreen" layoutX="40.0" layoutY="450.0" />
+      <TextField fx:id="txtElevation" layoutX="40.0" layoutY="100.0" />
+      <Label layoutX="40.0" layoutY="130.0" text="SPEED OF WINDS" />
+      <TextField fx:id="txtSpeedOfWinds" layoutX="40.0" layoutY="150.0" />
+      <Label layoutX="40.0" layoutY="180.0" text="ANGLE OF WINDS" />
+      <TextField fx:id="txtAngleOfWinds" layoutX="40.0" layoutY="200.0" />
+      <Label layoutX="40.0" layoutY="230.0" text="RATIO OF WINDS" />
+      <TextField fx:id="txtRatioOfWinds" layoutX="40.0" layoutY="250.0" />
+      <Label layoutX="40.0" layoutY="280.0" text="BREAK OF DIP" />
+      <TextField fx:id="txtBreakOfDip" layoutX="40.0" layoutY="300.0" />
+      <Label layoutX="40.0" layoutY="330.0" text="YARD OF MAX DIP" />
+      <TextField fx:id="txtYardOfMaxDip" layoutX="40.0" layoutY="350.0" />
+      <Label layoutX="40.0" layoutY="380.0" text="YARD OF LI" />
+      <TextField fx:id="txtYardOfLi" layoutX="40.0" layoutY="400.0" />
+      <Label layoutX="40.0" layoutY="430.0" text="PBSCALE OF GREEN" />
+      <TextField fx:id="txtPbScaleOfGreen" layoutX="40.0" layoutY="450.0" />
       <ComboBox fx:id="cbxClub" layoutX="220.0" layoutY="50.0" prefWidth="150.0">
          <items>
             <FXCollections fx:factory="observableArrayList">

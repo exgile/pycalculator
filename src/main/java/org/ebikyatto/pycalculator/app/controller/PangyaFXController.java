@@ -4,6 +4,15 @@ import java.net.URL;
 import java.util.Map;
 import java.util.ResourceBundle;
 
+import org.ebikyatto.pycalculator.common.abstracts.Club;
+import org.ebikyatto.pycalculator.common.interfaces.SpecialShot;
+import org.ebikyatto.pycalculator.common.util.DoubleUtil;
+import org.ebikyatto.pycalculator.common.util.SpringUtil;
+import org.ebikyatto.pycalculator.model.vo.Environment;
+import org.ebikyatto.pycalculator.model.vo.Result;
+import org.ebikyatto.pycalculator.model.vo.ResultMap;
+import org.springframework.stereotype.Component;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -12,11 +21,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
-import javax.annotation.Resource;
-
-import org.ebikyatto.pycalculator.common.abstracts.Club;
-import org.ebikyatto.pycalculator.model.vo.Environment;
-
+@Component
 public class PangyaFXController extends BaseController {
 	
 	@FXML
@@ -52,44 +57,90 @@ public class PangyaFXController extends BaseController {
 	@FXML
 	private ComboBox<String> cbxClub;
 	
-	@Resource(name = "clubMap")
 	private Map<String, Club> clubMap;
 	
 	private ModalController modal;
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		textFieldsFocus();
+		clubMap = (Map<String, Club>) SpringUtil.getBean("clubMap");
+		
+		this.textFieldsFocus();
 		
 		btnTomahawk.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+			Environment environment = getEnvironment();
+			String value = cbxClub.getValue();
+			Club club = clubMap.get(value);
+			Result level1 = club.tomahawk(environment);
+			Result level2 = club.tomahawkEnhance(environment);
+			Result level3 = new Result(0, 0);
+			
+			ResultMap resultMap = new ResultMap(value, level1, level2, level3);
+			modal.setClubAndSpecialShot(value, SpecialShot.TOMAHAWK);
+			modal.setResultMap(resultMap);
+			modal.show();
 		});
 		
 		btnDunk.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+			Environment environment = getEnvironment();
+			String value = cbxClub.getValue();
+			Club club = clubMap.get(value);
+			Result level1 = club.dunk(environment);
+			Result level2 = club.dunkPowerful(environment);
+			Result level3 = club.dunkEnhance(environment);
+			
+			ResultMap resultMap = new ResultMap(value, level1, level2, level3);
+			modal.setClubAndSpecialShot(value, SpecialShot.DUNK);
+			modal.setResultMap(resultMap);
+			modal.show();
 		});
 		
 		btnBackspin.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+			Environment environment = getEnvironment();
+			String value = cbxClub.getValue();
+			Club club = clubMap.get(value);
+			Result level1 = club.backspin(environment);
+			Result level2 = club.backspinPowerful(environment);
+			Result level3 = club.backspinEnhance(environment);
+			
+			ResultMap resultMap = new ResultMap(value, level1, level2, level3);
+			modal.setClubAndSpecialShot(value, SpecialShot.BACKSPIN);
+			modal.setResultMap(resultMap);
+			modal.show();
 		});
 		
 		btnCobra.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+			Environment environment = getEnvironment();
+			String value = cbxClub.getValue();
+			Club club = clubMap.get(value);
+			Result level1 = club.cobra(environment);
+			Result level2 = club.cobraEnhance(environment);
+			Result level3 = new Result(0, 0);
+			
+			ResultMap resultMap = new ResultMap(value, level1, level2, level3);
+			modal.setClubAndSpecialShot(value, SpecialShot.COBRA);
+			modal.setResultMap(resultMap);
+			modal.show();
 		});
 		
 		btnClear.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-			clear();
+			this.clear();
 		});
 	}
 	
 	private Environment getEnvironment() {
 		Environment environment = new Environment();
 		
-		double yard = getTextAsDouble(txtYard);
-		double elevation = getTextAsDouble(txtElevation);
-		double[] speedOfWinds = getTextAsDoubleArray(txtSpeedOfWinds);
-		double[] angleOfWinds = getTextAsDoubleArray(txtAngleOfWinds);
-		double[] ratioOfWinds = getTextAsDoubleArray(txtRatioOfWinds);
-		double breakOfDip = getTextAsDouble(txtBreakOfDip);
-		double yardOfMaxDip = getTextAsDouble(txtYardOfMaxDip);
-		double yardOfLI = getTextAsDouble(txtYardOfLi);
-		double pbScaleOfGreen = getTextAsDouble(txtPbScaleOfGreen);
+		double yard = DoubleUtil.parseDouble(txtYard.getText().trim());
+		double elevation = DoubleUtil.parseDouble(txtElevation.getText().trim());
+		double[] speedOfWinds = DoubleUtil.parseDoubleArray(txtSpeedOfWinds.getText().trim());
+		double[] angleOfWinds = DoubleUtil.parseDoubleArray(txtAngleOfWinds.getText().trim());
+		double[] ratioOfWinds = DoubleUtil.parseDoubleArray(txtRatioOfWinds.getText().trim());
+		double breakOfDip = DoubleUtil.parseDouble(txtBreakOfDip.getText().trim());
+		double yardOfMaxDip = DoubleUtil.parseDouble(txtYardOfMaxDip.getText().trim());
+		double yardOfLI = DoubleUtil.parseDouble(txtYardOfLi.getText().trim());
+		double pbScaleOfGreen = DoubleUtil.parseDouble(txtPbScaleOfGreen.getText().trim());
 		
 		if (ratioOfWinds.length == 1 && ratioOfWinds[0] == 0) {
 			ratioOfWinds[0] = 1;
@@ -112,37 +163,8 @@ public class PangyaFXController extends BaseController {
 		return environment;
 	}
 	
-	private double getTextAsDouble(TextField field) {
-		String txt = field.getText().replaceAll("[^\\d.\\-]", "").trim();
-		txt = defValIfEmpty(txt);
-		return txt.length() > 0 ? Double.valueOf(txt) : 0;
-	}
-	
-	private double[] getTextAsDoubleArray(TextField field) {
-		String txt = field.getText().replaceAll("[^\\d.,\\-]", "").trim();
-		txt = defValIfEmpty(txt);
-		String[] txtArray = txt.split(",");
-		double[] dbArray = new double[txtArray.length];
-		for (int i = 0; i < txtArray.length; i++) {
-			dbArray[i] = Double.valueOf(txtArray[i]);
-		}
-		return dbArray;
-	}
-	
 	public void setModalController(ModalController modal) {
 		this.modal = modal;
-	}
-	
-	private String getClub() {
-		return cbxClub.getValue();
-	}
-	
-	private String defValIfEmpty(String txt) {
-		return isEmpty(txt) ? "0" : txt;
-	}
-	
-	private boolean isEmpty(String txt) {
-		return txt == null || txt.isEmpty();
 	}
 	
 	private void textFieldsFocus() {

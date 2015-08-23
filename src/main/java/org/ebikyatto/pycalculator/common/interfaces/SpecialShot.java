@@ -5,16 +5,22 @@ import org.ebikyatto.pycalculator.model.vo.Result;
 
 public interface SpecialShot {
 	
-	public Result tomahawk(Environment env);
-	public Result tomahawkEnhance(Environment env);
-	public Result dunk(Environment env);
-	public Result dunkPowerful(Environment env);
-	public Result dunkEnhance(Environment env);
-	public Result backspin(Environment env);
-	public Result backspinPowerful(Environment env);
-	public Result backspinEnhance(Environment env);
-	public Result cobra(Environment env);
-	public Result cobraEnhance(Environment env);
-	public Result spike(Environment env);
-	public Result spikeEnhance(Environment env);
+	public static final String TOMAHAWK = "TOMAHAWK";
+	public static final String BACKSPIN = "BACKSPIN";
+	public static final String DUNK = "DUNK";
+	public static final String COBRA = "COBRA";
+	public static final String SPIKE = "SPIKE";
+	
+	public Result tomahawk(Environment environment);
+	public Result tomahawkEnhance(Environment environment);
+	public Result dunk(Environment environment);
+	public Result dunkPowerful(Environment environment);
+	public Result dunkEnhance(Environment environment);
+	public Result backspin(Environment environment);
+	public Result backspinPowerful(Environment environment);
+	public Result backspinEnhance(Environment environment);
+	public Result cobra(Environment environment);
+	public Result cobraEnhance(Environment environment);
+	public Result spike(Environment environment);
+	public Result spikeEnhance(Environment environment);
 }

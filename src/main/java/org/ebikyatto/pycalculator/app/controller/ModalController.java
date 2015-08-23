@@ -3,12 +3,14 @@ package org.ebikyatto.pycalculator.app.controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import org.ebikyatto.pycalculator.model.vo.Result;
+import org.ebikyatto.pycalculator.model.vo.ResultMap;
+import org.springframework.stereotype.Component;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
-import org.ebikyatto.pycalculator.model.vo.Result;
-import org.ebikyatto.pycalculator.model.vo.ResultMap;
-
+@Component
 public class ModalController extends BaseController {
 
 	@FXML
@@ -51,18 +53,18 @@ public class ModalController extends BaseController {
 		this.setSpecialShot(specialShot);
 	}
 	
-	public void setResultMap(ResultMap map) {
-		Result level1 = map.getLevel1();
+	public void setResultMap(ResultMap resultMap) {
+		Result level1 = resultMap.getLevel1();
 		level1PbScale.setText(Double.toString(level1.getPbScale()));
 		level1Moca.setText(Double.toString(level1.getMoca()));
 		level1Force.setText(Double.toString(level1.getForce()));
 		
-		Result level2 = map.getLevel2();
+		Result level2 = resultMap.getLevel2();
 		level2PbScale.setText(Double.toString(level2.getPbScale()));
 		level2Moca.setText(Double.toString(level2.getMoca()));
 		level2Force.setText(Double.toString(level2.getForce()));
 		
-		Result level3 = map.getLevel3();
+		Result level3 = resultMap.getLevel3();
 		level3PbScale.setText(Double.toString(level3.getPbScale()));
 		level3Moca.setText(Double.toString(level3.getMoca()));
 		level3Force.setText(Double.toString(level3.getForce()));
