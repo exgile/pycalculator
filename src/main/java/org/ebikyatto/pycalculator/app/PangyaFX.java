@@ -1,15 +1,16 @@
 package org.ebikyatto.pycalculator.app;
 
-import org.ebikyatto.pycalculator.app.controller.ModalController;
-import org.ebikyatto.pycalculator.app.controller.PangyaFXController;
-import org.springframework.stereotype.Component;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
+import org.ebikyatto.pycalculator.app.controller.ModalController;
+import org.ebikyatto.pycalculator.app.controller.PangyaFXController;
+import org.springframework.stereotype.Component;
 
 @Component
 public class PangyaFX extends Application {
@@ -29,6 +30,8 @@ public class PangyaFX extends Application {
 		
 		stage.setScene(new Scene(root));
 		stage.setTitle("Pangya Calculator");
+		stage.getIcons().add(new Image(
+				getClass().getResourceAsStream("/image/icon.png")));
 		stage.setResizable(false);
 		stage.show();
 		

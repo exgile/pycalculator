@@ -11,11 +11,11 @@
    <children>
       <Label layoutX="40.0" layoutY="25.0" text="CLUB" />
       <TextField fx:id="club" editable="false" layoutX="90.0" layoutY="20.0" prefHeight="36.0" prefWidth="100.0" />
-      <Label layoutX="250.0" layoutY="25.0" text="SPECIALSHOT" />
-      <TextField fx:id="specialShot" editable="false" layoutX="310.0" layoutY="20.0" prefHeight="36.0" prefWidth="150.0" />
-      <Label layoutX="40.0" layoutY="130.0" text="REGULAR" />
-      <Label layoutX="40.0" layoutY="180.0" text="TYPE A" />
-      <Label layoutX="40.0" layoutY="230.0" text="TYPE B" />
+      <Label layoutX="250.0" layoutY="25.0" text="SHOT" />
+      <TextField fx:id="specialShot" editable="false" layoutX="300.0" layoutY="20.0" prefHeight="36.0" prefWidth="150.0" />
+      <Label layoutX="40.0" layoutY="130.0" text="LEVEL1" />
+      <Label layoutX="40.0" layoutY="180.0" text="LEVEL2" />
+      <Label layoutX="40.0" layoutY="230.0" text="LEVEL3" />
       <Label alignment="CENTER" layoutX="150.0" layoutY="100.0" prefWidth="80.0" text="PBSCALE" />
       <Label alignment="CENTER" layoutX="260.0" layoutY="100.0" prefWidth="80.0" text="MOCA" />
       <Label alignment="CENTER" layoutX="370.0" layoutY="100.0" prefWidth="80.0" text="FORCE" />
