@@ -24,20 +24,22 @@ public class PangyaFX extends Application {
 		PangyaFX.setUserAgentStylesheet(STYLESHEET_MODENA);
 		
 		FXMLLoader loader = new FXMLLoader(
-				getClass().getResource("/fxml/pangyafx.fxml"));
+				this.getClass().getResource("/fxml/pangyafx.fxml"));
 		Parent root = loader.load();
 		PangyaFXController controller = loader.getController();
 		
-		stage.setScene(new Scene(root));
+		Scene rootScene = new Scene(root);
+		rootScene.getStylesheets().add(this.getClass().getResource("/css/style.css").toExternalForm());
+		stage.setScene(rootScene);
 		stage.setTitle("Pangya Calculator");
 		stage.getIcons().add(new Image(
-				getClass().getResourceAsStream("/image/icon.png")));
+				this.getClass().getResourceAsStream("/image/icon.png")));
 		stage.setResizable(false);
 		stage.show();
 		
 		Stage modal = new Stage();
 		FXMLLoader modalLoader = new FXMLLoader(
-				getClass().getResource("/fxml/modal.fxml"));
+				this.getClass().getResource("/fxml/modal.fxml"));
 		
 		Parent modalRoot = modalLoader.load();
 		ModalController modalController = modalLoader.getController();
