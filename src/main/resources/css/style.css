@@ -1,6 +1,8 @@
 .root {
 	-fx-font-family: "Courier New";
 	-fx-background: #ffffff;
+	-fx-background-position: right bottom;
+	-fx-background-image: url(../image/ariori.jpg);
 }
 
 .bevel-grey {
