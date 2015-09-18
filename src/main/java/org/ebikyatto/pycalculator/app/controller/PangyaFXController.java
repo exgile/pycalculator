@@ -44,18 +44,14 @@ public class PangyaFXController extends BaseController {
 	private TextField txtPbScaleOfGreen;
 	
 	@FXML
-	private Button btnTomahawk;
-	@FXML
-	private Button btnDunk;
-	@FXML
-	private Button btnBackspin;
-	@FXML
-	private Button btnCobra;
+	private Button btnCalculate;
 	@FXML
 	private Button btnClear;
 	
 	@FXML
 	private ComboBox<String> cbxClub;
+	@FXML
+	private ComboBox<String> cbxSpecialShot;
 	
 	private Map<String, Club> clubMap;
 	
@@ -68,60 +64,56 @@ public class PangyaFXController extends BaseController {
 		
 		this.textFieldsFocus();
 		
-		btnTomahawk.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+		btnCalculate.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
 			Environment environment = getEnvironment();
-			String value = cbxClub.getValue();
-			Club club = clubMap.get(value);
-			Result level1 = club.tomahawk(environment);
-			Result level2 = club.tomahawkEnhance(environment);
-			Result level3 = new Result(0, 0);
+			String clubValue = cbxClub.getValue();
+			String specialShotValue = cbxSpecialShot.getValue();
 			
-			ResultMap resultMap = new ResultMap(value, level1, level2, level3);
-			modal.setClubAndSpecialShot(value, SpecialShot.TOMAHAWK);
-			modal.setResultMap(resultMap);
-			modal.show();
-		});
-		
-		btnDunk.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-			Environment environment = getEnvironment();
-			String value = cbxClub.getValue();
-			Club club = clubMap.get(value);
-			Result level1 = club.dunk(environment);
-			Result level2 = club.dunkPowerful(environment);
-			Result level3 = club.dunkEnhance(environment);
+			Club club = clubMap.get(clubValue);
 			
-			ResultMap resultMap = new ResultMap(value, level1, level2, level3);
-			modal.setClubAndSpecialShot(value, SpecialShot.DUNK);
-			modal.setResultMap(resultMap);
-			modal.show();
-		});
-		
-		btnBackspin.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-			Environment environment = getEnvironment();
-			String value = cbxClub.getValue();
-			Club club = clubMap.get(value);
-			Result level1 = club.backspin(environment);
-			Result level2 = club.backspinPowerful(environment);
-			Result level3 = club.backspinEnhance(environment);
+			if (SpecialShot.TOMAHAWK.equals(specialShotValue)) {
+				Result level1 = club.tomahawk(environment);
+				Result level2 = club.tomahawkEnhance(environment);
+				Result level3 = new Result(0, 0);
+				
+				ResultMap resultMap = new ResultMap(clubValue, level1, level2, level3);
+				modal.setClubAndSpecialShot(clubValue, SpecialShot.TOMAHAWK);
+				modal.setResultMap(resultMap);
+				modal.show();
+			}
 			
-			ResultMap resultMap = new ResultMap(value, level1, level2, level3);
-			modal.setClubAndSpecialShot(value, SpecialShot.BACKSPIN);
-			modal.setResultMap(resultMap);
-			modal.show();
-		});
-		
-		btnCobra.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-			Environment environment = getEnvironment();
-			String value = cbxClub.getValue();
-			Club club = clubMap.get(value);
-			Result level1 = club.cobra(environment);
-			Result level2 = club.cobraEnhance(environment);
-			Result level3 = new Result(0, 0);
+			if (SpecialShot.DUNK.equals(specialShotValue)) {
+				Result level1 = club.dunk(environment);
+				Result level2 = club.dunkPowerful(environment);
+				Result level3 = club.dunkEnhance(environment);
+				
+				ResultMap resultMap = new ResultMap(clubValue, level1, level2, level3);
+				modal.setClubAndSpecialShot(clubValue, SpecialShot.DUNK);
+				modal.setResultMap(resultMap);
+				modal.show();
+			}
+
+			if (SpecialShot.BACKSPIN.equals(specialShotValue)) {
+				Result level1 = club.backspin(environment);
+				Result level2 = club.backspinPowerful(environment);
+				Result level3 = club.backspinEnhance(environment);
+				
+				ResultMap resultMap = new ResultMap(clubValue, level1, level2, level3);
+				modal.setClubAndSpecialShot(clubValue, SpecialShot.BACKSPIN);
+				modal.setResultMap(resultMap);
+				modal.show();
+			}
 			
-			ResultMap resultMap = new ResultMap(value, level1, level2, level3);
-			modal.setClubAndSpecialShot(value, SpecialShot.COBRA);
-			modal.setResultMap(resultMap);
-			modal.show();
+			if (SpecialShot.COBRA.equals(specialShotValue)) {
+				Result level1 = club.cobra(environment);
+				Result level2 = club.cobraEnhance(environment);
+				Result level3 = new Result(0, 0);
+				
+				ResultMap resultMap = new ResultMap(clubValue, level1, level2, level3);
+				modal.setClubAndSpecialShot(clubValue, SpecialShot.COBRA);
+				modal.setResultMap(resultMap);
+				modal.show();
+			}
 		});
 		
 		btnClear.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
