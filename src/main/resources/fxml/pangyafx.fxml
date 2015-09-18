@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ebikyatto.pycalculator.app.controller.PangyaFXController">
+<AnchorPane maxHeight="500.0" maxWidth="400.0" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ebikyatto.pycalculator.app.controller.PangyaFXController">
    <children>
       <Label layoutX="40.0" layoutY="30.0" text="YARD" />
       <TextField fx:id="txtYard" layoutX="40.0" layoutY="50.0" />
