@@ -1,5 +1,6 @@
 package org.ebikyatto.pycalculator.app.controller;
 
+import java.lang.reflect.Field;
 import java.net.URL;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -17,6 +18,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputControl;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -176,14 +178,20 @@ public class PangyaFXController extends BaseController {
 	}
 	
 	private void clear() {
-		TextField[] textFields = new TextField[] {
-				txtYard, txtElevation, txtSpeedOfWinds, txtAngleOfWinds, 
-				txtRatioOfWinds, txtBreakOfDip, txtYardOfMaxDip, txtYardOfLi, txtPbScaleOfGreen};
+		Field[] fileds = this.getClass().getDeclaredFields();
 		
-		for (TextField field : textFields) {
-			field.clear();
+		for (Field field : fileds) {
+			if (TextField.class.getName().equals(field.getType().getName())) {
+				try {
+					field.setAccessible(true);
+					Object object = field.get(this);
+					object.getClass().getSuperclass().getDeclaredMethod("clear").invoke(object);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
 		}
 		
-		textFields[0].requestFocus();
+		txtYard.requestFocus();
 	}
 }
