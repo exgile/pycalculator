@@ -152,7 +152,7 @@ public final class PangyaUtil {
 		double horizontalWind = environment.getHorizontalWind();
 		double massOfDip = massOfDip(environment, factorOfDip);
 		
-		return (horizontalWind + massOfDip) * hwi / POWERBAR_SCALE_RATIO;
+		return (horizontalWind + massOfDip) * hwi / PangyaUtil.POWERBAR_SCALE_RATIO;
 	}
 	
 	public static double pbScaleOfDunk(Environment environment, double hwi, double factorOfDip) {
@@ -165,7 +165,7 @@ public final class PangyaUtil {
 		double massOfDip = massOfDip(environment, factorOfDip);
 		double pbScaleOfGreen = environment.getPbScaleOfGreen();
 		
-		return ((horizontalWind + massOfDip) / POWERBAR_SCALE_RATIO + pbScaleOfGreen) * hwi;
+		return ((horizontalWind + massOfDip) / PangyaUtil.POWERBAR_SCALE_RATIO + pbScaleOfGreen) * hwi;
 	}
 	
 	public static double pbScaleOfCobra(Environment environment, double hwi, double factorOfDip) {

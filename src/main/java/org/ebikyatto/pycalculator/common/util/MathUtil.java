@@ -8,7 +8,7 @@ public final class MathUtil {
 	}
 	
 	public static double square(double numberToSquare) {
-		return Math.pow(numberToSquare, SQUARE_POWER);
+		return Math.pow(numberToSquare, MathUtil.SQUARE_POWER);
 	}
 	
 	public static double sin(double number, double angle) {

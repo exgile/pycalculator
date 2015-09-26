@@ -1,7 +1,10 @@
 package org.ebikyatto.pycalculator.app;
 
+import java.net.URL;
+
 import org.ebikyatto.pycalculator.app.controller.ModalController;
 import org.ebikyatto.pycalculator.app.controller.PangyaFXController;
+import org.ebikyatto.pycalculator.common.util.ResourceUtil;
 import org.springframework.stereotype.Component;
 
 import javafx.application.Application;
@@ -16,53 +19,58 @@ import javafx.stage.StageStyle;
 @Component
 public class PangyaFX extends Application {
 
+	private static final URL PANGYAFX_FXML = ResourceUtil.getURL("/fxml/pangyafx.fxml");
+	private static final URL MODAL_FXML = ResourceUtil.getURL("/fxml/modal.fxml");
+	private static final Image ICON = ResourceUtil.getImage("/image/icon.png");
+	private static final String STYLESHEETS = ResourceUtil.getPath("/css/style.css");
+	
 	public static void main(String[] args) {
 		PangyaFX.launch(args);
 	}
 
 	@Override
 	public void start(Stage stage) throws Exception {
-		PangyaFX.setUserAgentStylesheet(STYLESHEET_MODENA);
+		PangyaFX.setUserAgentStylesheet(Application.STYLESHEET_MODENA);
 		
-		FXMLLoader loader = new FXMLLoader(
-				this.getClass().getResource("/fxml/pangyafx.fxml"));
+		// Application settings
+		FXMLLoader loader = new FXMLLoader(PangyaFX.PANGYAFX_FXML);
 		Parent root = loader.load();
 		PangyaFXController controller = loader.getController();
 		
-		Scene rootScene = new Scene(root);
-		rootScene.setFill(null);
-		rootScene.getStylesheets().add(this.getClass().getResource("/css/style.css").toExternalForm());
+		Scene scene = new Scene(root);
+		scene.setFill(null);
+		scene.getStylesheets().add(PangyaFX.STYLESHEETS);
 		root.getStyleClass().add("javafx");
-		stage.setScene(rootScene);
+		stage.setScene(scene);
 		stage.initStyle(StageStyle.DECORATED);
 		stage.setTitle("Pangya Calculator");
-		stage.getIcons().add(new Image(
-				this.getClass().getResourceAsStream("/image/icon.png")));
+		stage.getIcons().add(PangyaFX.ICON);
 		stage.setResizable(false);
 		stage.show();
 		
-		Stage modal = new Stage();
-		FXMLLoader modalLoader = new FXMLLoader(
-				this.getClass().getResource("/fxml/modal.fxml"));
-		
+		// Modal settings
+		FXMLLoader modalLoader = new FXMLLoader(PangyaFX.MODAL_FXML);
 		Parent modalRoot = modalLoader.load();
+		ModalController modalController = modalLoader.getController();
+		
+		Stage modal = new Stage();
 		Scene modalScene = new Scene(modalRoot);
 		modalScene.setFill(null);
-		modalScene.getStylesheets().add(this.getClass().getResource("/css/style.css").toExternalForm());
+		modalScene.getStylesheets().add(PangyaFX.STYLESHEETS);
 		modalRoot.getStyleClass().add("modal");
-		ModalController modalController = modalLoader.getController();
 		modal.setScene(modalScene);
 		modal.initModality(Modality.WINDOW_MODAL);
 		modal.initOwner(stage);
 		modal.setTitle("Result");
-		modal.getIcons().add(new Image(
-				this.getClass().getResourceAsStream("/image/icon.png")));
+		modal.getIcons().add(PangyaFX.ICON);
 		modal.setResizable(false);
 		
+		// Set stages to own controller
 		controller.setStage(stage);
 		modalController.setStage(modal);
 		
-		controller.setModalController(modalController);
+		// Set modal to application, make application can control modal to display
+		controller.setModal(modalController);
 	}
 	
 }

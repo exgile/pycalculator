@@ -13,6 +13,6 @@ public enum Dunk {
 
 	@Override
 	public String toString() {
-		return baseKey;
+		return this.baseKey;
 	}
 }

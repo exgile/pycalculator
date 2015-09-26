@@ -15,10 +15,10 @@ public abstract class TestCase {
 	private final Logger logger;
 	
 	public TestCase() {
-		logger = LoggerFactory.getLogger(this.getClass());
+		this.logger = LoggerFactory.getLogger(getClass());
 	}
 	
 	protected Logger getLogger() {
-		return logger;
+		return this.logger;
 	}
 }

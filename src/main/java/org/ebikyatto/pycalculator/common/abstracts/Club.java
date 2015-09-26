@@ -17,20 +17,20 @@ public abstract class Club implements SpecialShot {
 	private ResourceBundle bundle;
 	
 	public Club() {
-		String baseName = this.getClass().getSimpleName().toLowerCase();
-		bundle = ResourceBundle.getBundle("config/" + baseName);
+		String baseName = getClass().getSimpleName().toLowerCase();
+		this.bundle = ResourceBundle.getBundle("config/" + baseName);
 	}
 
 	private Result tomahawk(Environment environment, Tomahawk type) {
-		double coefficient = DoubleUtil.parseDouble(bundle.getString(type.toString() + ".coefficient"));
-		double factorOfWind = DoubleUtil.parseDouble(bundle.getString(type.toString() + ".factorOfWind"));
-		double[] yardOfForce = DoubleUtil.parseDoubleArray(bundle.getString(type.toString() + ".yardOfForce"));
+		double coefficient = DoubleUtil.parseDouble(this.bundle.getString(type.toString() + ".coefficient"));
+		double factorOfWind = DoubleUtil.parseDouble(this.bundle.getString(type.toString() + ".factorOfWind"));
+		double[] yardOfForce = DoubleUtil.parseDoubleArray(this.bundle.getString(type.toString() + ".yardOfForce"));
 		
 		double factorOfElevation = 0;
 		if (environment.getElevation() >= 0) {
-			factorOfElevation = DoubleUtil.parseDouble(bundle.getString(type.toString() + ".rise.factorOfElevation"));
+			factorOfElevation = DoubleUtil.parseDouble(this.bundle.getString(type.toString() + ".rise.factorOfElevation"));
 		} else {
-			factorOfElevation = DoubleUtil.parseDouble(bundle.getString(type.toString() + ".fall.factorOfElevation"));
+			factorOfElevation = DoubleUtil.parseDouble(this.bundle.getString(type.toString() + ".fall.factorOfElevation"));
 		}
 		
 		double verticalWind = PangyaUtil.verticalWind(environment);
@@ -50,15 +50,15 @@ public abstract class Club implements SpecialShot {
 	}
 	
 	private Result dunk(Environment environment, Dunk type) {
-		double coefficient = DoubleUtil.parseDouble(bundle.getString(type.toString() + ".coefficient"));
-		double factorOfWind = DoubleUtil.parseDouble(bundle.getString(type.toString() + ".factorOfWind"));
-		double[] yardOfForce = DoubleUtil.parseDoubleArray(bundle.getString(type.toString() + ".yardOfForce"));
+		double coefficient = DoubleUtil.parseDouble(this.bundle.getString(type.toString() + ".coefficient"));
+		double factorOfWind = DoubleUtil.parseDouble(this.bundle.getString(type.toString() + ".factorOfWind"));
+		double[] yardOfForce = DoubleUtil.parseDoubleArray(this.bundle.getString(type.toString() + ".yardOfForce"));
 		
 		double factorOfElevation = 0;
 		if (environment.getElevation() >= 0) {
-			factorOfElevation = DoubleUtil.parseDouble(bundle.getString(type.toString() + ".rise.factorOfElevation"));
+			factorOfElevation = DoubleUtil.parseDouble(this.bundle.getString(type.toString() + ".rise.factorOfElevation"));
 		} else {
-			factorOfElevation = DoubleUtil.parseDouble(bundle.getString(type.toString() + ".fall.factorOfElevation"));
+			factorOfElevation = DoubleUtil.parseDouble(this.bundle.getString(type.toString() + ".fall.factorOfElevation"));
 		}
 		
 		double verticalWind = PangyaUtil.verticalWind(environment);
@@ -78,15 +78,15 @@ public abstract class Club implements SpecialShot {
 	}
 	
 	private Result backspin(Environment environment, Backspin type) {
-		double coefficient = DoubleUtil.parseDouble(bundle.getString(type.toString() + ".coefficient"));
-		double factorOfWind = DoubleUtil.parseDouble(bundle.getString(type.toString() + ".factorOfWind"));
-		double[] yardOfForce = DoubleUtil.parseDoubleArray(bundle.getString(type.toString() + ".yardOfForce"));
+		double coefficient = DoubleUtil.parseDouble(this.bundle.getString(type.toString() + ".coefficient"));
+		double factorOfWind = DoubleUtil.parseDouble(this.bundle.getString(type.toString() + ".factorOfWind"));
+		double[] yardOfForce = DoubleUtil.parseDoubleArray(this.bundle.getString(type.toString() + ".yardOfForce"));
 		
 		double factorOfElevation = 0;
 		if (environment.getElevation() >= 0) {
-			factorOfElevation = DoubleUtil.parseDouble(bundle.getString(type.toString() + ".rise.factorOfElevation"));
+			factorOfElevation = DoubleUtil.parseDouble(this.bundle.getString(type.toString() + ".rise.factorOfElevation"));
 		} else {
-			factorOfElevation = DoubleUtil.parseDouble(bundle.getString(type.toString() + ".fall.factorOfElevation"));
+			factorOfElevation = DoubleUtil.parseDouble(this.bundle.getString(type.toString() + ".fall.factorOfElevation"));
 		}
 		
 		double verticalWind = PangyaUtil.verticalWind(environment);
@@ -106,15 +106,15 @@ public abstract class Club implements SpecialShot {
 	}
 	
 	private Result cobra(Environment environment, Cobra type) {
-		double coefficient = DoubleUtil.parseDouble(bundle.getString(type.toString() + ".coefficient"));
-		double factorOfWind = DoubleUtil.parseDouble(bundle.getString(type.toString() + ".factorOfWind"));
-		double[] yardOfForce = DoubleUtil.parseDoubleArray(bundle.getString(type.toString() + ".yardOfForce"));
+		double coefficient = DoubleUtil.parseDouble(this.bundle.getString(type.toString() + ".coefficient"));
+		double factorOfWind = DoubleUtil.parseDouble(this.bundle.getString(type.toString() + ".factorOfWind"));
+		double[] yardOfForce = DoubleUtil.parseDoubleArray(this.bundle.getString(type.toString() + ".yardOfForce"));
 		
 		double factorOfElevation = 0;
 		if (environment.getElevation() >= 0) {
-			factorOfElevation = DoubleUtil.parseDouble(bundle.getString(type.toString() + ".rise.factorOfElevation"));
+			factorOfElevation = DoubleUtil.parseDouble(this.bundle.getString(type.toString() + ".rise.factorOfElevation"));
 		} else {
-			factorOfElevation = DoubleUtil.parseDouble(bundle.getString(type.toString() + ".fall.factorOfElevation"));
+			factorOfElevation = DoubleUtil.parseDouble(this.bundle.getString(type.toString() + ".fall.factorOfElevation"));
 		}
 		
 		double verticalWind = PangyaUtil.verticalWind(environment);

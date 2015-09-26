@@ -12,6 +12,6 @@ public enum Spike {
 
 	@Override
 	public String toString() {
-		return baseKey;
+		return this.baseKey;
 	}
 }

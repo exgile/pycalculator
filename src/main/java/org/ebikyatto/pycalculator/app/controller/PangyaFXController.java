@@ -18,10 +18,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextInputControl;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import lombok.Setter;
 
 @Component
 public class PangyaFXController extends BaseController {
@@ -57,21 +57,22 @@ public class PangyaFXController extends BaseController {
 	
 	private Map<String, Club> clubMap;
 	
+	@Setter
 	private ModalController modal;
 	
 	@SuppressWarnings("unchecked")
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		clubMap = (Map<String, Club>) SpringUtil.getBean("clubMap");
+		this.clubMap = (Map<String, Club>) SpringUtil.getBean("clubMap");
 		
 		this.textFieldsFocus();
 		
-		btnCalculate.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+		this.btnCalculate.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
 			Environment environment = getEnvironment();
-			String clubValue = cbxClub.getValue();
-			String specialShotValue = cbxSpecialShot.getValue();
+			String clubValue = this.cbxClub.getValue();
+			String specialShotValue = this.cbxSpecialShot.getValue();
 			
-			Club club = clubMap.get(clubValue);
+			Club club = this.clubMap.get(clubValue);
 			
 			if (SpecialShot.TOMAHAWK.equals(specialShotValue)) {
 				Result level1 = club.tomahawk(environment);
@@ -79,9 +80,9 @@ public class PangyaFXController extends BaseController {
 				Result level3 = new Result(0, 0);
 				
 				ResultMap resultMap = new ResultMap(clubValue, level1, level2, level3);
-				modal.setClubAndSpecialShot(clubValue, SpecialShot.TOMAHAWK);
-				modal.setResultMap(resultMap);
-				modal.show();
+				this.modal.setClubAndSpecialShot(clubValue, SpecialShot.TOMAHAWK);
+				this.modal.setResultMap(resultMap);
+				this.modal.show();
 			}
 			
 			if (SpecialShot.DUNK.equals(specialShotValue)) {
@@ -90,9 +91,9 @@ public class PangyaFXController extends BaseController {
 				Result level3 = club.dunkEnhance(environment);
 				
 				ResultMap resultMap = new ResultMap(clubValue, level1, level2, level3);
-				modal.setClubAndSpecialShot(clubValue, SpecialShot.DUNK);
-				modal.setResultMap(resultMap);
-				modal.show();
+				this.modal.setClubAndSpecialShot(clubValue, SpecialShot.DUNK);
+				this.modal.setResultMap(resultMap);
+				this.modal.show();
 			}
 
 			if (SpecialShot.BACKSPIN.equals(specialShotValue)) {
@@ -101,9 +102,9 @@ public class PangyaFXController extends BaseController {
 				Result level3 = club.backspinEnhance(environment);
 				
 				ResultMap resultMap = new ResultMap(clubValue, level1, level2, level3);
-				modal.setClubAndSpecialShot(clubValue, SpecialShot.BACKSPIN);
-				modal.setResultMap(resultMap);
-				modal.show();
+				this.modal.setClubAndSpecialShot(clubValue, SpecialShot.BACKSPIN);
+				this.modal.setResultMap(resultMap);
+				this.modal.show();
 			}
 			
 			if (SpecialShot.COBRA.equals(specialShotValue)) {
@@ -112,29 +113,27 @@ public class PangyaFXController extends BaseController {
 				Result level3 = new Result(0, 0);
 				
 				ResultMap resultMap = new ResultMap(clubValue, level1, level2, level3);
-				modal.setClubAndSpecialShot(clubValue, SpecialShot.COBRA);
-				modal.setResultMap(resultMap);
-				modal.show();
+				this.modal.setClubAndSpecialShot(clubValue, SpecialShot.COBRA);
+				this.modal.setResultMap(resultMap);
+				this.modal.show();
 			}
 		});
 		
-		btnClear.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-			this.clear();
-		});
+		this.btnClear.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> clear());
 	}
 	
 	private Environment getEnvironment() {
 		Environment environment = new Environment();
 		
-		double yard = DoubleUtil.parseDouble(txtYard.getText().trim());
-		double elevation = DoubleUtil.parseDouble(txtElevation.getText().trim());
-		double[] speedOfWinds = DoubleUtil.parseDoubleArray(txtSpeedOfWinds.getText().trim());
-		double[] angleOfWinds = DoubleUtil.parseDoubleArray(txtAngleOfWinds.getText().trim());
-		double[] ratioOfWinds = DoubleUtil.parseDoubleArray(txtRatioOfWinds.getText().trim());
-		double breakOfDip = DoubleUtil.parseDouble(txtBreakOfDip.getText().trim());
-		double yardOfMaxDip = DoubleUtil.parseDouble(txtYardOfMaxDip.getText().trim());
-		double yardOfLI = DoubleUtil.parseDouble(txtYardOfLi.getText().trim());
-		double pbScaleOfGreen = DoubleUtil.parseDouble(txtPbScaleOfGreen.getText().trim());
+		double yard = DoubleUtil.parseDouble(this.txtYard.getText().trim());
+		double elevation = DoubleUtil.parseDouble(this.txtElevation.getText().trim());
+		double[] speedOfWinds = DoubleUtil.parseDoubleArray(this.txtSpeedOfWinds.getText().trim());
+		double[] angleOfWinds = DoubleUtil.parseDoubleArray(this.txtAngleOfWinds.getText().trim());
+		double[] ratioOfWinds = DoubleUtil.parseDoubleArray(this.txtRatioOfWinds.getText().trim());
+		double breakOfDip = DoubleUtil.parseDouble(this.txtBreakOfDip.getText().trim());
+		double yardOfMaxDip = DoubleUtil.parseDouble(this.txtYardOfMaxDip.getText().trim());
+		double yardOfLI = DoubleUtil.parseDouble(this.txtYardOfLi.getText().trim());
+		double pbScaleOfGreen = DoubleUtil.parseDouble(this.txtPbScaleOfGreen.getText().trim());
 		
 		if (ratioOfWinds.length == 1 && ratioOfWinds[0] == 0) {
 			ratioOfWinds[0] = 1;
@@ -157,19 +156,23 @@ public class PangyaFXController extends BaseController {
 		return environment;
 	}
 	
-	public void setModalController(ModalController modal) {
-		this.modal = modal;
-	}
-	
 	private void textFieldsFocus() {
 		TextField[] textFields = new TextField[] {
-				txtYard, txtElevation, txtSpeedOfWinds, txtAngleOfWinds, 
-				txtRatioOfWinds, txtBreakOfDip, txtYardOfMaxDip, txtYardOfLi, txtPbScaleOfGreen};
+			this.txtYard, 
+			this.txtElevation, 
+			this.txtSpeedOfWinds, 
+			this.txtAngleOfWinds, 
+			this.txtRatioOfWinds, 
+			this.txtBreakOfDip, 
+			this.txtYardOfMaxDip, 
+			this.txtYardOfLi, 
+			this.txtPbScaleOfGreen
+		};
 		
-		for (int i = 0; i < textFields.length; i++) {
-			TextField fieldToFocus = i + 1 != textFields.length ? textFields[i + 1] : textFields[0];
+		for (int idx = 0; idx < textFields.length; idx++) {
+			final TextField fieldToFocus = idx + 1 != textFields.length ? textFields[idx + 1] : textFields[0];
 			
-			textFields[i].addEventHandler(KeyEvent.KEY_PRESSED, e -> {
+			textFields[idx].addEventHandler(KeyEvent.KEY_PRESSED, e -> {
 				if (e.getCode() == KeyCode.ENTER) {
 					fieldToFocus.requestFocus();
 				}
@@ -178,11 +181,12 @@ public class PangyaFXController extends BaseController {
 	}
 	
 	private void clear() {
-		Field[] fileds = this.getClass().getDeclaredFields();
+		Field[] fileds = getClass().getDeclaredFields();
 		
 		for (Field field : fileds) {
 			if (TextField.class.getName().equals(field.getType().getName())) {
 				try {
+					// Use reflection to call clear method
 					field.setAccessible(true);
 					Object object = field.get(this);
 					object.getClass().getSuperclass().getDeclaredMethod("clear").invoke(object);
@@ -192,6 +196,6 @@ public class PangyaFXController extends BaseController {
 			}
 		}
 		
-		txtYard.requestFocus();
+		this.txtYard.requestFocus();
 	}
 }

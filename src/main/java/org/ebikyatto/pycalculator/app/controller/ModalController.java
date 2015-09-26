@@ -49,30 +49,30 @@ public class ModalController extends BaseController {
 	}
 	
 	public void setClubAndSpecialShot(String club, String specialShot) {
-		this.setClub(club);
-		this.setSpecialShot(specialShot);
+		setClub(club);
+		setSpecialShot(specialShot);
 	}
 	
 	public void setResultMap(ResultMap resultMap) {
 		Result level1 = resultMap.getLevel1();
-		level1PbScale.setText(Double.toString(level1.getPbScale()));
-		level1Moca.setText(Double.toString(level1.getMoca()));
-		level1Force.setText(Double.toString(level1.getForce()));
+		this.level1PbScale.setText(Double.toString(level1.getPbScale()));
+		this.level1Moca.setText(Double.toString(level1.getMoca()));
+		this.level1Force.setText(Double.toString(level1.getForce()));
 		
 		Result level2 = resultMap.getLevel2();
-		level2PbScale.setText(Double.toString(level2.getPbScale()));
-		level2Moca.setText(Double.toString(level2.getMoca()));
-		level2Force.setText(Double.toString(level2.getForce()));
+		this.level2PbScale.setText(Double.toString(level2.getPbScale()));
+		this.level2Moca.setText(Double.toString(level2.getMoca()));
+		this.level2Force.setText(Double.toString(level2.getForce()));
 		
 		Result level3 = resultMap.getLevel3();
-		level3PbScale.setText(Double.toString(level3.getPbScale()));
-		level3Moca.setText(Double.toString(level3.getMoca()));
-		level3Force.setText(Double.toString(level3.getForce()));
+		this.level3PbScale.setText(Double.toString(level3.getPbScale()));
+		this.level3Moca.setText(Double.toString(level3.getMoca()));
+		this.level3Force.setText(Double.toString(level3.getForce()));
 	}
 	
 	public void show(String club, String specialShot, ResultMap map) {
-		this.setClubAndSpecialShot(club, specialShot);
-		this.setResultMap(map);
-		this.show();
+		setClubAndSpecialShot(club, specialShot);
+		setResultMap(map);
+		show();
 	}
 }

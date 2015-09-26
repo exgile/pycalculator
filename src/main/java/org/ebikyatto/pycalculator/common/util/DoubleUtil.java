@@ -8,7 +8,7 @@ public final class DoubleUtil {
 	}
 
 	public static double[] parseDoubleArray(String stringToParse) {
-		return parseDoubleArray(stringToParse, DEFAULT_DELIMITER);
+		return parseDoubleArray(stringToParse, DoubleUtil.DEFAULT_DELIMITER);
 	}
 	
 	public static double[] parseDoubleArray(String stringToParse, String delimiter) {

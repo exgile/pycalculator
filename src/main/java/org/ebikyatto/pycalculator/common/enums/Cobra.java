@@ -12,6 +12,6 @@ public enum Cobra {
 
 	@Override
 	public String toString() {
-		return baseKey;
+		return this.baseKey;
 	}
 }

@@ -32,8 +32,8 @@ public class Club1WTest extends TestCase {
 		environment.setBreakOfDip(breakOfDip);
 		environment.setYardOfMaxDip(yardOfMaxDip);
 		
-		Result result = club1W.tomahawk(environment);
-		this.getLogger().debug(result.toString());
+		Result result = this.club1W.tomahawk(environment);
+		getLogger().debug(result.toString());
 
 		Assert.assertEquals(23.412, result.getPbScale(), .1);
 		Assert.assertEquals(4.682, result.getMoca(), .1);
@@ -60,8 +60,8 @@ public class Club1WTest extends TestCase {
 		environment.setBreakOfDip(breakOfDip);
 		environment.setYardOfMaxDip(yardOfMaxDip);
 		
-		Result result = club1W.tomahawkEnhance(environment);
-		this.getLogger().debug(result.toString());
+		Result result = this.club1W.tomahawkEnhance(environment);
+		getLogger().debug(result.toString());
 
 		Assert.assertEquals(23.412, result.getPbScale(), .1);
 		Assert.assertEquals(4.682, result.getMoca(), .1);
@@ -88,8 +88,8 @@ public class Club1WTest extends TestCase {
 		environment.setBreakOfDip(breakOfDip);
 		environment.setYardOfMaxDip(yardOfMaxDip);
 		
-		Result result = club1W.dunk(environment);
-		this.getLogger().debug(result.toString());
+		Result result = this.club1W.dunk(environment);
+		getLogger().debug(result.toString());
 
 		Assert.assertEquals(27.447, result.getPbScale(), .1);
 		Assert.assertEquals(5.489, result.getMoca(), .1);
@@ -113,8 +113,8 @@ public class Club1WTest extends TestCase {
 		environment.setBreakOfDip(breakOfDip);
 		environment.setYardOfMaxDip(yardOfMaxDip);
 		
-		result = club1W.dunk(environment);
-		this.getLogger().debug(result.toString());
+		result = this.club1W.dunk(environment);
+		getLogger().debug(result.toString());
 
 		Assert.assertEquals(13.541, result.getPbScale(), .1);
 		Assert.assertEquals(2.708, result.getMoca(), .1);
@@ -143,8 +143,8 @@ public class Club1WTest extends TestCase {
 		environment.setYardOfMaxDip(yardOfMaxDip);
 		environment.setPbScaleOfGreen(pbScaleOfGreen);
 		
-		Result result = club1W.backspin(environment);
-		this.getLogger().debug(result.toString());
+		Result result = this.club1W.backspin(environment);
+		getLogger().debug(result.toString());
 
 		Assert.assertEquals(29.178, result.getPbScale(), .1);
 		Assert.assertEquals(5.835, result.getMoca(), .1);
@@ -173,8 +173,8 @@ public class Club1WTest extends TestCase {
 		environment.setYardOfMaxDip(yardOfMaxDip);
 		environment.setPbScaleOfGreen(pbScaleOfGreen);
 		
-		Result result = club1W.cobra(environment);
-		this.getLogger().debug(result.toString());
+		Result result = this.club1W.cobra(environment);
+		getLogger().debug(result.toString());
 
 		Assert.assertEquals(23.769, result.getPbScale(), .1);
 		Assert.assertEquals(4.753, result.getMoca(), .1);
