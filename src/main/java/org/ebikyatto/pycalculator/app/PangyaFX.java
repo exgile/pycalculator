@@ -1,5 +1,9 @@
 package org.ebikyatto.pycalculator.app;
 
+import org.ebikyatto.pycalculator.app.controller.ModalController;
+import org.ebikyatto.pycalculator.app.controller.PangyaFXController;
+import org.springframework.stereotype.Component;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -7,10 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
-import org.ebikyatto.pycalculator.app.controller.ModalController;
-import org.ebikyatto.pycalculator.app.controller.PangyaFXController;
-import org.springframework.stereotype.Component;
+import javafx.stage.StageStyle;
 
 @Component
 public class PangyaFX extends Application {
@@ -29,8 +30,11 @@ public class PangyaFX extends Application {
 		PangyaFXController controller = loader.getController();
 		
 		Scene rootScene = new Scene(root);
+		rootScene.setFill(null);
 		rootScene.getStylesheets().add(this.getClass().getResource("/css/style.css").toExternalForm());
+		root.getStyleClass().add("javafx");
 		stage.setScene(rootScene);
+		stage.initStyle(StageStyle.DECORATED);
 		stage.setTitle("Pangya Calculator");
 		stage.getIcons().add(new Image(
 				this.getClass().getResourceAsStream("/image/icon.png")));
@@ -42,12 +46,17 @@ public class PangyaFX extends Application {
 				this.getClass().getResource("/fxml/modal.fxml"));
 		
 		Parent modalRoot = modalLoader.load();
+		Scene modalScene = new Scene(modalRoot);
+		modalScene.setFill(null);
+		modalScene.getStylesheets().add(this.getClass().getResource("/css/style.css").toExternalForm());
+		modalRoot.getStyleClass().add("modal");
 		ModalController modalController = modalLoader.getController();
-		
-		modal.setScene(new Scene(modalRoot));
+		modal.setScene(modalScene);
 		modal.initModality(Modality.WINDOW_MODAL);
 		modal.initOwner(stage);
 		modal.setTitle("Result");
+		modal.getIcons().add(new Image(
+				this.getClass().getResourceAsStream("/image/icon.png")));
 		modal.setResizable(false);
 		
 		controller.setStage(stage);

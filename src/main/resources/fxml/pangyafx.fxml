@@ -26,7 +26,7 @@
       <TextField fx:id="txtYardOfLi" layoutX="40.0" layoutY="400.0" />
       <Label layoutX="40.0" layoutY="430.0" text="PBSCALE OF GREEN" />
       <TextField fx:id="txtPbScaleOfGreen" layoutX="40.0" layoutY="450.0" />
-      <ComboBox fx:id="cbxClub" layoutX="220.0" layoutY="50.0" prefWidth="150.0">
+      <ComboBox fx:id="cbxClub" layoutX="220.0" layoutY="50.0" prefHeight="30.0" prefWidth="150.0">
          <items>
             <FXCollections fx:factory="observableArrayList">
                <String fx:value="1W" />
@@ -41,7 +41,7 @@
             <String fx:value="1W" />
          </value>
       </ComboBox>
-      <ComboBox fx:id="cbxSpecialShot" layoutX="220.0" layoutY="105.0" prefWidth="150.0">
+      <ComboBox fx:id="cbxSpecialShot" layoutX="220.0" layoutY="105.0" prefHeight="30.0" prefWidth="150.0">
          <items>
             <FXCollections fx:factory="observableArrayList">
                <String fx:value="TOMAHAWK" />
@@ -54,7 +54,7 @@
             <String fx:value="TOMAHAWK" />
          </value>
       </ComboBox>
-      <Button fx:id="btnCalculate" layoutX="220.0" layoutY="160.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" text="CALCULATE" />
-      <Button fx:id="btnClear" layoutX="220.0" layoutY="215.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" text="CLEAR" />
+      <Button fx:id="btnCalculate" layoutX="220.0" layoutY="160.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="CALCULATE" />
+      <Button fx:id="btnClear" layoutX="220.0" layoutY="215.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="CLEAR" />
    </children>
 </AnchorPane>
