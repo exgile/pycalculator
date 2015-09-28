@@ -8,23 +8,23 @@
 
 <AnchorPane maxHeight="500.0" maxWidth="400.0" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ebikyatto.pycalculator.app.controller.PangyaFXController">
    <children>
-      <Label layoutX="40.0" layoutY="30.0" text="YARD" />
+      <Label layoutX="40.0" layoutY="30.0" text="%field.yard" />
       <TextField fx:id="txtYard" layoutX="40.0" layoutY="50.0" />
-      <Label layoutX="40.0" layoutY="80.0" text="ELEVATION" />
+      <Label layoutX="40.0" layoutY="80.0" text="%field.elevation" />
       <TextField fx:id="txtElevation" layoutX="40.0" layoutY="100.0" />
-      <Label layoutX="40.0" layoutY="130.0" text="SPEED OF WINDS" />
+      <Label layoutX="40.0" layoutY="130.0" text="%field.speedOfWinds" />
       <TextField fx:id="txtSpeedOfWinds" layoutX="40.0" layoutY="150.0" />
-      <Label layoutX="40.0" layoutY="180.0" text="ANGLE OF WINDS" />
+      <Label layoutX="40.0" layoutY="180.0" text="%field.angleOfWinds" />
       <TextField fx:id="txtAngleOfWinds" layoutX="40.0" layoutY="200.0" />
-      <Label layoutX="40.0" layoutY="230.0" text="RATIO OF WINDS" />
+      <Label layoutX="40.0" layoutY="230.0" text="%field.ratioOfWinds" />
       <TextField fx:id="txtRatioOfWinds" layoutX="40.0" layoutY="250.0" />
-      <Label layoutX="40.0" layoutY="280.0" text="BREAK OF DIP" />
+      <Label layoutX="40.0" layoutY="280.0" text="%field.breakOfDip" />
       <TextField fx:id="txtBreakOfDip" layoutX="40.0" layoutY="300.0" />
-      <Label layoutX="40.0" layoutY="330.0" text="YARD OF MAX DIP" />
+      <Label layoutX="40.0" layoutY="330.0" text="%field.yardOfMaxDip" />
       <TextField fx:id="txtYardOfMaxDip" layoutX="40.0" layoutY="350.0" />
-      <Label layoutX="40.0" layoutY="380.0" text="YARD OF LI" />
+      <Label layoutX="40.0" layoutY="380.0" text="%field.yardOfLi" />
       <TextField fx:id="txtYardOfLi" layoutX="40.0" layoutY="400.0" />
-      <Label layoutX="40.0" layoutY="430.0" text="PBSCALE OF GREEN" />
+      <Label layoutX="40.0" layoutY="430.0" text="%field.pbScaleOfGreen" />
       <TextField fx:id="txtPbScaleOfGreen" layoutX="40.0" layoutY="450.0" />
       <ComboBox fx:id="cbxClub" layoutX="220.0" layoutY="50.0" prefHeight="30.0" prefWidth="150.0">
          <items>
@@ -54,7 +54,7 @@
             <String fx:value="TOMAHAWK" />
          </value>
       </ComboBox>
-      <Button fx:id="btnCalculate" layoutX="220.0" layoutY="160.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="CALCULATE" />
-      <Button fx:id="btnClear" layoutX="220.0" layoutY="215.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="CLEAR" />
+      <Button fx:id="btnCalculate" layoutX="220.0" layoutY="160.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="%button.calculate" />
+      <Button fx:id="btnReset" layoutX="220.0" layoutY="215.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="%button.reset" />
    </children>
 </AnchorPane>

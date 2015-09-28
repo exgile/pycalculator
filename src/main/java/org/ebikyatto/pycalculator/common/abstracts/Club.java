@@ -14,7 +14,7 @@ import org.ebikyatto.pycalculator.model.vo.Environment;
 import org.ebikyatto.pycalculator.model.vo.Result;
 
 public abstract class Club implements SpecialShot {
-	private ResourceBundle bundle;
+	private final ResourceBundle bundle;
 	
 	public Club() {
 		String baseName = getClass().getSimpleName().toLowerCase();

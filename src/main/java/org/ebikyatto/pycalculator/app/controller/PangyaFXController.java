@@ -48,7 +48,7 @@ public class PangyaFXController extends BaseController {
 	@FXML
 	private Button btnCalculate;
 	@FXML
-	private Button btnClear;
+	private Button btnReset;
 	
 	@FXML
 	private ComboBox<String> cbxClub;
@@ -119,7 +119,7 @@ public class PangyaFXController extends BaseController {
 			}
 		});
 		
-		this.btnClear.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> clear());
+		this.btnReset.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> reset());
 	}
 	
 	private Environment getEnvironment() {
@@ -180,7 +180,7 @@ public class PangyaFXController extends BaseController {
 		}
 	}
 	
-	private void clear() {
+	private void reset() {
 		Field[] fileds = getClass().getDeclaredFields();
 		
 		for (Field field : fileds) {

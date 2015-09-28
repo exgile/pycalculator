@@ -1,6 +1,8 @@
 package org.ebikyatto.pycalculator.app;
 
 import java.net.URL;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 import org.ebikyatto.pycalculator.app.controller.ModalController;
 import org.ebikyatto.pycalculator.app.controller.PangyaFXController;
@@ -23,6 +25,7 @@ public class PangyaFX extends Application {
 	private static final URL MODAL_FXML = ResourceUtil.getURL("/fxml/modal.fxml");
 	private static final Image ICON = ResourceUtil.getImage("/image/icon.png");
 	private static final String STYLESHEETS = ResourceUtil.getPath("/css/style.css");
+	private static final ResourceBundle BUNDLE = ResourceBundle.getBundle("config/label", Locale.JAPAN);
 	
 	public static void main(String[] args) {
 		PangyaFX.launch(args);
@@ -34,6 +37,7 @@ public class PangyaFX extends Application {
 		
 		// Application settings
 		FXMLLoader loader = new FXMLLoader(PangyaFX.PANGYAFX_FXML);
+		loader.setResources(BUNDLE);
 		Parent root = loader.load();
 		PangyaFXController controller = loader.getController();
 		
@@ -50,6 +54,7 @@ public class PangyaFX extends Application {
 		
 		// Modal settings
 		FXMLLoader modalLoader = new FXMLLoader(PangyaFX.MODAL_FXML);
+		modalLoader.setResources(BUNDLE);
 		Parent modalRoot = modalLoader.load();
 		ModalController modalController = modalLoader.getController();
 		
