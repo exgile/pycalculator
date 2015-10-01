@@ -7,10 +7,10 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
 	<context:annotation-config />
-	<context:component-scan base-package="org.ebikyatto.pycalculator" />
+	<context:component-scan base-package="ebikyatto.pycalculator" />
 
 	<util:map id="clubMap" map-class="java.util.HashMap" key-type="java.lang.String"
-		value-type="org.ebikyatto.pycalculator.common.abstracts.Club">
+		value-type="ebikyatto.pycalculator.common.abstracts.Club">
 		<entry key="1W" value-ref="club1W" />
 		<entry key="2W" value-ref="club2W" />
 		<entry key="3W" value-ref="club3W" />
