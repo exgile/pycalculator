@@ -21,7 +21,7 @@ public class PangyaFX extends Application {
 	}
 
 	@Override
-	public void start(Stage stage) throws Exception {
+	public void start(Stage primaryStage) throws Exception {
 		PangyaFX.setUserAgentStylesheet(STYLESHEET_MODENA);
 		
 		FXMLLoader loader = new FXMLLoader(
@@ -31,12 +31,12 @@ public class PangyaFX extends Application {
 		
 		Scene rootScene = new Scene(root);
 		rootScene.getStylesheets().add(this.getClass().getResource("/css/style.css").toExternalForm());
-		stage.setScene(rootScene);
-		stage.setTitle("Pangya Calculator");
-		stage.getIcons().add(new Image(
+		primaryStage.setScene(rootScene);
+		primaryStage.setTitle("Pangya Calculator");
+		primaryStage.getIcons().add(new Image(
 				this.getClass().getResourceAsStream("/image/icon.png")));
-		stage.setResizable(false);
-		stage.show();
+		primaryStage.setResizable(false);
+		primaryStage.show();
 		
 		Stage modal = new Stage();
 		FXMLLoader modalLoader = new FXMLLoader(
@@ -47,11 +47,11 @@ public class PangyaFX extends Application {
 		
 		modal.setScene(new Scene(modalRoot));
 		modal.initModality(Modality.WINDOW_MODAL);
-		modal.initOwner(stage);
+		modal.initOwner(primaryStage);
 		modal.setTitle("Result");
 		modal.setResizable(false);
 		
-		controller.setStage(stage);
+		controller.setStage(primaryStage);
 		modalController.setStage(modal);
 		
 		controller.setModalController(modalController);
