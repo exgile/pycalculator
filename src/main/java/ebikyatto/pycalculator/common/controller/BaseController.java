@@ -1,4 +1,4 @@
-package ebikyatto.pycalculator.app.controller;
+package ebikyatto.pycalculator.common.controller;
 
 import org.springframework.stereotype.Component;
 

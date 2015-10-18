@@ -4,12 +4,12 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import ebikyatto.pycalculator.common.test.TestCase;
+import ebikyatto.pycalculator.common.test.BaseTest;
 import ebikyatto.pycalculator.model.club.Club1W;
 import ebikyatto.pycalculator.model.vo.Environment;
 import ebikyatto.pycalculator.model.vo.Result;
 
-public class Club1WTest extends TestCase {
+public class Club1WTest extends BaseTest {
 	
 	@Autowired
 	private Club1W club1W;

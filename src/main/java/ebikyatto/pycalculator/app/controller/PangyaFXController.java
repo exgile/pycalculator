@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import org.springframework.stereotype.Component;
 
 import ebikyatto.pycalculator.common.abstracts.Club;
+import ebikyatto.pycalculator.common.controller.BaseController;
 import ebikyatto.pycalculator.common.interfaces.SpecialShot;
 import ebikyatto.pycalculator.common.util.DoubleUtil;
 import ebikyatto.pycalculator.common.util.SpringUtil;

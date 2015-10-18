@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import org.springframework.stereotype.Component;
 
+import ebikyatto.pycalculator.common.controller.BaseController;
 import ebikyatto.pycalculator.model.vo.Result;
 import ebikyatto.pycalculator.model.vo.ResultMap;
 import javafx.fxml.FXML;

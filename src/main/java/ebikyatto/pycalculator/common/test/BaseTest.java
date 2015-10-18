@@ -11,10 +11,10 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 @RunWith(SpringJUnit4ClassRunner.class)
 @TestExecutionListeners(DependencyInjectionTestExecutionListener.class)
 @ContextConfiguration(locations = {"classpath:spring/spring-*.xml"})
-public abstract class TestCase {
+public abstract class BaseTest {
 	private final Logger logger;
 	
-	public TestCase() {
+	public BaseTest() {
 		logger = LoggerFactory.getLogger(this.getClass());
 	}
 	
