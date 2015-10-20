@@ -5,10 +5,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public final class SpringUtil {
 
-	private static final ApplicationContext context;
+	private static ApplicationContext context;
 	
 	static {
-		context = new ClassPathXmlApplicationContext("spring/spring-*.xml");
+		SpringUtil.context = new ClassPathXmlApplicationContext("spring/spring-*.xml");
+	}
+	
+	private SpringUtil() {
 	}
 	
 	public static Object getBean(String beanName) {

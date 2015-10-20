@@ -1,13 +1,10 @@
 package ebikyatto.pycalculator.common.controller;
 
-import org.springframework.stereotype.Component;
-
 import javafx.fxml.Initializable;
 import javafx.stage.Stage;
 import lombok.Getter;
 import lombok.Setter;
 
-@Component
 public abstract class BaseController implements Initializable {
 	
 	@Getter @Setter

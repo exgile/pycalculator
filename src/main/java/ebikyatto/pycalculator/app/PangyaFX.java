@@ -1,5 +1,7 @@
 package ebikyatto.pycalculator.app;
 
+import ebikyatto.pycalculator.app.controller.ModalController;
+import ebikyatto.pycalculator.app.controller.PangyaFXController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,12 +10,6 @@ import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import org.springframework.stereotype.Component;
-
-import ebikyatto.pycalculator.app.controller.ModalController;
-import ebikyatto.pycalculator.app.controller.PangyaFXController;
-
-@Component
 public class PangyaFX extends Application {
 
 	public static void main(String[] args) {

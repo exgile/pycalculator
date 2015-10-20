@@ -5,8 +5,6 @@ import java.net.URL;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-import org.springframework.stereotype.Component;
-
 import ebikyatto.pycalculator.common.abstracts.Club;
 import ebikyatto.pycalculator.common.controller.BaseController;
 import ebikyatto.pycalculator.common.interfaces.SpecialShot;
@@ -19,12 +17,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextInputControl;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
-@Component
 public class PangyaFXController extends BaseController {
 	
 	@FXML
